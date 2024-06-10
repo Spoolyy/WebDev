@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectors</title>
+    <style>
+        body {
+            background-color: black;
+            text-align: center;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        p {
+            color: fuchsia;
+        }
+
+        .primaclasse {
+            color: goldenrod;
+        }
+
+        #first {
+            color: coral;
+        }
+
+        .motherclass .childclass {
+            color: rgb(110, 95, 209);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>This is an example of internal css with selectors</h1>
+        <p>base style</p>
+        <p class="primaclasse"> style using a class</p>
+        <p id="first">stile using an ID</p>
+    </div>
+    <div class="motherclass">
+        <p class="childclass">This is an example with childclass recalling motherclass</p>
+    </div>
+    <p class="childclass"><del>This is also an example just childclass, without recalling motherclass, this is
+            wrong</del></p>
+</body>
+
+</html>

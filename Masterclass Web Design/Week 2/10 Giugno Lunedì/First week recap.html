@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 1 Recap</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>This is a recap of Week 1</h1>
+    <h2 id="red">the whole page is being formatted with internal css for ease of use</h2>
+    <div>
+        <p id="white">This word is <span style="color:purple">purple</span> and it's using an inline style.</p>
+    </div>
+    <div>
+        <p>This is an image attached to the page</p>
+        <img src="https://i.pinimg.com/564x/ee/b3/92/eeb392b2c0f8d8c28cb40cfa529754ff.jpg" alt="Silvia logo" width="250px">
+    </div>
+    <div>
+        <p> This below shows the difference between Var and Let, you can also check the console by pressing F12</p>
+        <p id="modifiedTypeLet"></p>
+        <p id="unmodifiedTypeLet"></p>
+    </div>
+    <script>
+       function exampleWithLet() {
+                let letMessage = "this is an example of script using a LET variable, this is the original message of this variable";
+                if (true) {
+                    let letMessage = "This is the modified content of said let function";
+                    document.getElementById("modifiedTypeLet").innerHTML = "This is the 'modified' LET contents: " + letMessage;
+                    console.log(letMessage); // Output: Hello from the block scope!
+                }
+                document.getElementById("unmodifiedTypeLet").innerHTML = "This is the 'unmodified' LET contents: " + letMessage;
+                console.log(letMessage); // Output: Hello from the block scope!
+            }
+            exampleWithLet();
+    </script>
+</body>
+</html>

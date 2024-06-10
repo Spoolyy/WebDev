@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal and Inline CSS</title>
+    <style>
+        div {
+            border: 1px solid black;
+            color: black;
+            text-align: center;
+        }
+
+        h1 {
+            color: red;
+            text-align: center;
+        }
+
+        #internal {
+            color: darkblue;
+            text-align: center;
+        }
+
+        p {
+            color: green;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Example where the Style is both <b>Internal</b> and <b>Inline</b>.</h1>
+        <p id="internal">Example where the style is internal</p>
+        <p style="color: purple; text-align: center;">Example where the Style is inline</p>
+    </div>
+</body>
+
+</html>

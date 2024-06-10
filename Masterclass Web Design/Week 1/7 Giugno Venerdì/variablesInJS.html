@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Var and let variables</title> <!-- This example shows differences between var and let variable types  -->
+    <style>
+        body {
+            text-align: center;
+            background-color: rgb(20, 20, 20);
+            color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>This page shows the difference between Var and Let, check the console by pressing F12</h1>
+    <h1>Keep in mind the default text should be: <b>"Hello from the function scope!"</b> </h1>
+        <div>
+            <p id="modifiedTypeVar"></p>
+            <p id="unmodifiedTypeVar"></p>
+        </div>
+        <div>
+            <p id="modifiedTypeLet"></p>
+            <p id="unmodifiedTypeLet"></p>
+        </div>
+        <script>
+            function exampleWithVar() {
+                var varMessage = "VAR function here, hello from the function scope!";
+                if (true) {
+                    var varMessage = "VAR function here, hello from the block scope!";
+                    document.getElementById("modifiedTypeVar").innerHTML = "This is the 'modified' VAR contents: " + varMessage;
+                    console.log(varMessage); // Output: Hello from the block scope!
+                }
+                document.getElementById("unmodifiedTypeVar").innerHTML = "This is the 'unmodified' VAR contents: " + varMessage;
+                console.log(varMessage); // Output: Hello from the block scope!
+            }
+            exampleWithVar();
+
+            function exampleWithLet() {
+                let letMessage = "LET function here, hello from the function scope!";
+                if (true) {
+                    let letMessage = "LET function here, hello from the block scope!";
+                    document.getElementById("modifiedTypeLet").innerHTML = "This is the 'modified' LET contents: " + letMessage;
+                    console.log(letMessage); // Output: Hello from the block scope!
+                }
+                document.getElementById("unmodifiedTypeLet").innerHTML = "This is the 'unmodified' LET contents: " + letMessage;
+                console.log(letMessage); // Output: Hello from the block scope!
+            }
+            exampleWithLet();
+        </script>
+</body>
+
+</html>

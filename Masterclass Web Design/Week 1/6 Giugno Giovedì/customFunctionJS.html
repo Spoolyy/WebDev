@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>The Window Object</h1>
+    <h2>The prompt() Method</h2>
+    <p>Click the button to demonstrate the prompt box.</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo"></p>
+    <script>
+        function myFunction() {
+            let person = prompt("Please enter your name", "Harry Potter");
+            if (person != null) {
+                document.getElementById("demo").innerHTML =  //getElementByClassName for classes
+                    "Hello " + person + "! How are you today?";
+                console.log("Compilato")
+            }
+            else {
+                console.log("Non ancora compilato")
+            }
+        }
+    </script>
+</body>
+
+</html>
