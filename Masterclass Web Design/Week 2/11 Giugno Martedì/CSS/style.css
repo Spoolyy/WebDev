@@ -1,0 +1,32 @@
+.navbar {
+    height: 50px;
+    width: fit-content;
+    background-color: rgb(101, 117, 126);
+    border-radius: 7px;
+}
+
+.navbar-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navbar-item {
+    float: left;
+}
+
+.navbar-item a {
+    display: block;
+    color: #ffff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 15px;
+    font-family: 'Roboto', sans-serif;
+    transition: background 0.3s ease-in-out;
+    border-radius: 7px;
+}
+
+.navbar-item a:hover {
+    background-color: #555;
+}

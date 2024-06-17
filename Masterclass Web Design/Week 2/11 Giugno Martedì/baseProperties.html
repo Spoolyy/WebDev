@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        #dimensione {
+            font-size: 16px;
+        }
+        #spessore {
+            font-weight: 900;
+        }
+        #sfondo{
+            background-color: bisque;
+        }
+        #immagine-sfondo {
+            background-image: url(https://store-images.s-microsoft.com/image/apps.37885.66977881282882149.29e00ee4-f5aa-4b10-8b20-d48f548a10d0.120b6c1a-404e-41dc-ad5b-7d1da01e2e84?q=90&w=480&h=270);
+            height: 300px;
+            color: black;
+            font-size: 22px;
+            font-weight: bold;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+        a {
+            font-size: 30px;
+        }
+        a:hover {
+            color: red;
+        }
+        a:focus {
+            color: blueviolet;
+        }
+        a:active {
+            color: green;
+        }
+        a:visited{
+            color: purple;
+        }
+        a:first-child {
+            color: black;
+        }
+        a:last-child {
+            color: chocolate;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Ciao, questi sono degli esempi di proprieta base</h1>
+        <p id="dimensione"><span style="color:red">text-size </span>dimensione del testo</p>
+        <p id="spessore">spessore del testo</p>
+    </div>
+    <div id="sfondo">
+        <p>ESEMPIO COLORE DI SFONDO</p>
+    </div>
+    <div>
+        <p id="immagine-sfondo">ESEMPIO DI IMMAGINE SFONDO</p>
+    </div>
+    <div>
+        <a href="#">pseudoclassi</a>
+        <a href="#">link uno</a>
+        <a href="#">link due</a>
+    </div>
+</body>
+</html>

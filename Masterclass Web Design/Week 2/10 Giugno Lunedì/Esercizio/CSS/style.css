@@ -1,0 +1,77 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+@keyframes fadeIn {
+    from {
+        margin-top: 100px;
+        opacity: 0;
+    }
+
+    to {
+        margin-top: 0px;
+        opacity: 1;
+    }
+}
+
+body, html {
+    background-color: rgb(189, 183, 170);
+    color: rgb(30, 30, 30);
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.body-style {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    animation: fadeIn 1s ease forwards;
+}
+
+.box-shadow {
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    background-color: rgb(168, 162, 151);
+    margin: 20px
+}
+
+.text {
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+.magikk {
+    background-color: rgb(189, 183, 170);
+    color: rgb(35, 35, 35);
+    font-size: 18px;
+    font-weight: bold;
+    margin: 16px;
+    border: 1px solid rgb(30, 30, 30);
+    border-radius: 5px;
+    padding: 5px 25px 5px 25px;
+}
+
+.magikk-input {
+    background-color: rgb(189, 183, 170);
+    color: rgb(35, 35, 35);
+    font-size: 18px;
+    font-weight: bold;
+    margin: 16px 0px 16px 0px;
+    border: 1px solid rgb(30, 30, 30);
+    border-radius: 5px;
+    padding: 5px 25px 5px 25px;
+}
+
+.magikk:hover, .magikk-input:hover {
+    background-color: rgb(30, 30, 30);
+    color: rgb(189, 183, 170);
+    transition: background 0.3s ease-in-out;
+}

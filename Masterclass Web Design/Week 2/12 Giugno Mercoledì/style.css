@@ -1,0 +1,19 @@
+.box {
+    background-color: red;
+    width: 200px;
+    height: 200px;
+    border: 10px inset black;
+    border-radius: 5px;
+    padding: 40px 20px;
+    margin-top: 40px;
+    box-sizing: content-box;
+}
+
+.image-box {
+    width: 450px;
+    height: auto;
+    padding: 20px;
+    border: 5px inset black;
+    margin: 20px;
+    box-sizing: border-box;
+}
