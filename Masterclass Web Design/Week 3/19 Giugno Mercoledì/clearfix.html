@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esempio di Clearfix</title>
+    <style>
+        /* Clearfix */
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .container {
+            width: 100%;
+            border: 1px solid #000;
+        }
+
+        .left {
+            float: left;
+            width: 50%;
+            background-color: #f0f0f0;
+            padding: 10px;
+        }
+
+        .right {
+            float: right;
+            width: 50%;
+            background-color: #c0c0c0;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container clearfix">
+        <div class="left">
+            <h2>Colonna Sinistra</h2>
+            <p>Questo è il contenuto della colonna sinistra.</p>
+        </div>
+        <div class="right">
+            <h2>Colonna Destra</h2>
+            <p>Questo è il contenuto della colonna destra.</p>
+        </div>
+    </div>
+    <footer>
+        <p>Questo è il footer. Si trova sotto le colonne.</p>
+    </footer>
+</body>
+</html>

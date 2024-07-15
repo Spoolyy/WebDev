@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 350px;
+            border: 2px solid black;
+        }
+
+        .item {
+            flex: 1; /*racchiude le proprietà sottostanti
+            flex-grow: 1; Determina quanto un elemento può crescere rispetto agli altri elementi flessibili all'interno dello stesso contenitore.
+            flex-shrink: 1; Determina quanto un elemento può ridursi rispetto agli altri elementi flessibili all'interno dello stesso contenitore.
+            flex-basis: auto; Determina quanto un elemento può ridursi rispetto agli altri elementi flessibili all'interno dello stesso contenitore.
+            */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">
+            <h1>Flexbox item 1</h1>
+        </div>
+        <div class="item">
+            <h1>Flexbox item 2</h1>
+        </div>
+        <div class="item">
+            <h1>Flexbox item 3</h1>
+        </div>
+    </div>
+</body>
+</html>

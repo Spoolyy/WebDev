@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'FormulaUno';
+    src: url('../fonts/Formula1-Regular.ttf') format('truetype')
+}
+
+.fontface {
+    font-family: "FormulaUno";
+}
+
+
+.wallpaper {
+    background-image: url("https://img.freepik.com/premium-photo/colorful-fabric-material-wallpaper-mixed-color-background_234209-504.jpg");
+    width: fit-content;
+    border-radius: 5px;
+}
+
+.rgba {
+    background-color: rgba(0, 0, 255, 0.2);
+    padding: 10px;
+}
+
+.opacity {
+    background-color: red;
+    opacity: 0.5;
+    width: fit-content;
+    border-radius: 50px;
+    padding: 10px;
+}
+
+.textshadow {
+    text-shadow: 0px 0px 2px rgb(255, 0, 0);
+}

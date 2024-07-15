@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let person = {
+            name: "Alessio",
+            age: 25
+        }
+
+        console.log("Before the Update: ", person)
+
+        function updatePerson(obj) {
+            obj.name = "Charles"
+            obj.age = 27
+        }
+
+        updatePerson(person)
+
+        console.log("After the update: ", person)
+        // in javascript, quando modifichi un oggetto all'interno di una funzione,
+        // la funzione accede all'oggetto originale e ne modifica il contenuto originale.
+        // in altri linguaggi di programmazione tipo C, una volta usciti dalla funzione, 
+        // le modifiche all'oggetto non persistono, poiche l'oggetto su cui lavora la funzione
+        // è essenzialmente una copia.
+
+        function romanToInt() {
+            // for per scorrere la stinga di numeri romani
+            // switch per collegare ogni lettera al numero
+            // if per controllare se il numero romano successivo è maggiore o minore 
+            // e da li valutare se fare una somma o una differenza
+        }
+    </script>
+</body>
+
+</html>

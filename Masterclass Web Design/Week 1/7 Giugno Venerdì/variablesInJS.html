@@ -11,6 +11,9 @@
             background-color: rgb(20, 20, 20);
             color: bisque;
         }
+        .red {
+            color: red;
+        }
     </style>
 </head>
 
@@ -27,25 +30,25 @@
         </div>
         <script>
             function exampleWithVar() {
-                var varMessage = "VAR function here, hello from the function scope!";
+                var varMessage = "<span class='red'>VAR</span> function here, hello from the function scope!";
                 if (true) {
-                    var varMessage = "VAR function here, hello from the block scope!";
-                    document.getElementById("modifiedTypeVar").innerHTML = "This is the 'modified' VAR contents: " + varMessage;
+                    var varMessage = "<span class='red'>VAR</span> function here, hello from the block scope!";
+                    document.getElementById("modifiedTypeVar").innerHTML = "This is the 'modified' <span class='red'>VAR</span> contents: " + varMessage;
                     console.log(varMessage); // Output: Hello from the block scope!
                 }
-                document.getElementById("unmodifiedTypeVar").innerHTML = "This is the 'unmodified' VAR contents: " + varMessage;
+                document.getElementById("unmodifiedTypeVar").innerHTML = "This is the 'unmodified' <span class='red'>VAR</span> contents: " + varMessage;
                 console.log(varMessage); // Output: Hello from the block scope!
             }
             exampleWithVar();
 
             function exampleWithLet() {
-                let letMessage = "LET function here, hello from the function scope!";
+                let letMessage = "<span class='red'>LET</span> function here, hello from the function scope!";
                 if (true) {
-                    let letMessage = "LET function here, hello from the block scope!";
-                    document.getElementById("modifiedTypeLet").innerHTML = "This is the 'modified' LET contents: " + letMessage;
+                    let letMessage = "<span class='red'>LET</span> function here, hello from the block scope!";
+                    document.getElementById("modifiedTypeLet").innerHTML = "This is the 'modified' <span class='red'>LET</span> contents: " + letMessage;
                     console.log(letMessage); // Output: Hello from the block scope!
                 }
-                document.getElementById("unmodifiedTypeLet").innerHTML = "This is the 'unmodified' LET contents: " + letMessage;
+                document.getElementById("unmodifiedTypeLet").innerHTML = "This is the 'unmodified' <span class='red'>LET</span> contents: " + letMessage;
                 console.log(letMessage); // Output: Hello from the block scope!
             }
             exampleWithLet();

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const numberToGuess = Math.floor(Math.random() * 10) + 1
+        let guess = 0
+        /*
+        guess = parseInt(prompt("Guess the number between 1 and 10: "))
+        while (guess !== numberToGuess) {
+            guess = parseInt(prompt("Wrong guess, try again "))
+        }
+
+        do {
+            guess = parseInt(prompt("Guess the number between 1 and 10: "))
+        } while (guess !== numberToGuess)
+        */
+        for (let i = 0; i < 4; i++) {
+            guess = parseInt(prompt("Guess the number between 1 and 10: "))
+            if (guess == numberToGuess) {
+                alert("Congratulation, you guessed the correct number: " + numberToGuess)
+            } else if (i === 3) {
+                alert("Your ran out of guesses, the number was: " + numberToGuess)
+            } else continue
+        }
+    </script>
+</body>
+
+</html>

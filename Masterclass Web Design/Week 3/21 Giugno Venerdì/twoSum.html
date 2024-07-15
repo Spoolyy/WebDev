@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    check console
+    <script>
+        function twoSum(nums, target) {
+            for (let i = 0; i < nums.length; i++) {
+                let diff = target - nums[i]
+                let position = nums.indexOf(diff)
+                if (position !== -1 && position !== i) {
+                    return [i, position]
+                }
+            }
+        };
+
+        let nums = [3, 3, 4, 5]
+        let target = 8
+        let result = twoSum(nums, target)
+    </script>
+</body>
+
+</html>

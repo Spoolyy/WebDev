@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function parseJSON(jsonString) {
+            try {
+                let parsedData = JSON.parse(jsonString);
+                console.log("Parsed JSON: " + parsedData)
+            } catch (error) {
+                console.error("Failed to parse JSON: " + error.message)
+            }
+        }
+        let validJson = '{"name": "Jhon", "age": 30}';
+        let invalidJson = '{"name": "Jhon", "age": 30';
+        parseJSON(validJson);
+        parseJSON(invalidJson);
+    </script>
+</body>
+
+</html>

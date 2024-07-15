@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script> <!-- importa tailwind -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- il file JS invece aiuta VSC a riconoscere le keyword per una scrittura piu veloce -->
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                    sm: '480px',
+                    md: '768px',
+                    lg: "976px",
+                    xl: "1440px",
+                },
+                extend: {
+                    colors: {
+                        offWhite: '#FAF9F6',
+                        offBlack: '#313639'
+                    },
+                    fontFamily: {
+                        'Roboto' : ['Roboto']
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body>
+    <div class="font-Roboto rounded-md p-2 text-3xl text-center font-bold text-offWhite bg-offBlack">
+        <h1>
+            First time using Tailwind!
+        </h1>
+    </div>
+    <div class="font-Roboto rounded-md p-2 mt-2 text-2xl font-bold text-center bg-offBlack text-offWhite md:text-red-600 lg:text-green-500">
+        <h1>
+            screen sizes (and margin (and padding) (lol) ), try to resize the screen.
+
+            Keep in mind that a negative margin in a predetermined direction may cause items to overlap.
+            <!-- a negative margin is obtained by using '-' just before the margin property, ex: -mt-5 -->
+        </h1>
+    </div>
+    <div class="font-Roboto flex flex-col">
+        <div class="text-center font-bold text-3xl z-10">
+            <h1 class="text-black">
+                i'm in front
+            </h1>
+        </div>
+        <div class="text-center font-bold text-3xl z-0 -mt-7">
+            <h1 class="text-blue-600">
+                i'm in the back
+            </h1>
+        </div>
+    </div>
+</body>
+
+</html>

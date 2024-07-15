@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/tele-marines" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        offWhite: '#FAF9F6',
+                        offBlack: '#313639',
+                        dudaCyan: '#c1d6d9'
+                    },
+                    fontFamily: {
+                        'Roboto': ['Roboto'],
+                        'Tele-Marines': ['tele-Marines']
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body>
+    <div id="mainContainer" class="flex flex-col font-Roboto overflow-hidden">
+        <div id="firstContainer" class="w-full h-screen flex flex-col bg-dudaCyan">
+            <div id="navigationBar" class="flex w-full text-3xl mt-4 ml-8 z-50">
+                <a href="">
+                    <p>UNITE</p>
+                </a>
+                <a class="pl-8" href="">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+            </div>
+            <div id="imageContainerOne" class="flex ml-16 items-end">
+                <div id="imageOne" class="w-[390px] h-[390px] bg-red-500 z-10 translate-y-20 translate-x-20"><a
+                        href=""></a></div>
+                <div id="imageTwo" class="w-[390px] h-[488px] bg-green-500 z-0"><a href=""></a></div>
+                <div id="titleOne" class="z-10 h-415 -translate-x-80 translate-y-40">
+                    <h1 class="text-[415px] text-end leading-none">UNITE</h1>
+                </div>
+                <!-- translate-y-32 translate-x-32
+                -translate-x-72 translate-y-16 -->
+            </div>
+            <div id="textContainerOne" class="flex flex-col mt-32 pb-40 bg-dudaCyan z-20 items-end">
+                <div id="textOne" class="pl-8 pt-2 w-[600px] mr-32">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur.
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+                        id est laborum.</p>
+                </div>
+            </div>
+        </div>
+        <div id="secondcontainer" class="text-xl w-full h-screen">
+            <div id="textTwo" class="pl-8 pt-28 w-[600px] mr-32">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur.
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+                    id est laborum.
+                </p>
+            </div>
+        </div>
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            function sectionOneScrolltrigger() {
+                gsap.to('#titleOne', {
+                    scrollTrigger: {
+                        trigger: '#firstContainer',
+                        start: "top top",
+                        end: "bottom+=100 top",
+                        markers: true,
+                        scrub: true,
+
+                    },
+                    x: 500,
+                    opacity: 0.1,
+                    ease: "power1.inOut",
+                })
+            }
+
+            function navbarPin() {
+                gsap.to('#navigationBar', {
+                    scrollTrigger: {
+                        trigger: '#navigationBar',
+                        start: "top top",
+                        end: 'bottom+=1080px top',
+                        markers: true,
+                        scrub: true,
+                        pin: true,
+                    },
+                })
+            }
+
+
+            document.addEventListener("DOMContentLoaded", () => {
+
+                sectionOneScrolltrigger()
+                navbarPin()
+
+                gsap.from("#navigationBar", {
+                    opacity: 0,
+                    duration: 3,
+                })
+
+                gsap.from("#navigationBar", {
+                    x: -200,
+                    duration: 1,
+                })
+
+                gsap.from("#imageOne", {
+                    y: -200,
+                    duration: 1,
+                })
+
+                gsap.from("#imageOne", {
+                    opacity: 0,
+                    duration: 3,
+                })
+
+                gsap.from("#imageTwo", {
+                    y: 200,
+                    duration: 1,
+                })
+
+                gsap.from("#imageTwo", {
+                    opacity: 0,
+                    duration: 3,
+                })
+
+                gsap.from("#titleOne", {
+                    y: 400,
+                    duration: 2.5,
+                    opacity: 0,
+                })
+
+                gsap.from("#textOne", {
+                    opacity: 0,
+                    duration: 2.5
+                })
+
+                gsap.from("#textTwo", {
+                    y: -150,
+                    duration: 1
+                })
+
+            })
+        </script>
+</body>
+
+</html>

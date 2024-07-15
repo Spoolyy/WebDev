@@ -1,0 +1,8 @@
+check laragon root folder
+
+<nav class="navbar">
+            <ul class="navbar-list">
+                <li class="navbar-item"><img></li>
+                <li class="navbar-item"><a href="#">Destinazioni</a></li>
+            </ul>
+        </nav>
