@@ -1,0 +1,25 @@
+Scrivere un programma PHP che stampa i numeri da 10 a 1.
+
+
+Scrivere un programma PHP che stampa la tabellina del 5 (da 5 a 50) utilizzando un ciclo "while".
+
+
+Scrivi uno script PHP che verifica se un numero dato è pari o dispari.
+
+
+Scrivi uno script PHP che conta quanti numeri pari ci sono tra 1 e 10.
+
+
+Scrivi uno script PHP che stampa tutti i multipli di 3 da 1 a 15.
+
+
+Scrivi uno script PHP che trova e stampa il numero maggiore tra due numeri dati.
+
+
+Scrivi uno script PHP che verifica se un numero dato è multiplo di 3.
+
+
+Scrivi uno script PHP che verifica se un numero è positivo, negativo o zero.
+
+
+Scrivi uno script PHP che verifica se un anno dato è bisestile. L'anno è bisestile se è divisibile per 4 e non è divisibile per 100, oppure se l'anno è divisibile per 400
