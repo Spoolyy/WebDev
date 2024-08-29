@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        offWhite: '#FAF9F6',
+                        offBlack: '#313639',
+                        dudaCyan: '#c1d6d9'
+                    },
+                    fontFamily: {
+                        'Roboto': ['Roboto'],
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body>
+    <div class="bg-gray-500 text-black h-screen flex justify-center items-center font-Roboto">
+        <div id="app" class="container mx-auto p-4 max-w-md">
+            <div class="bg-offWhite rounded-lg p-6 shadow-lg ">
+                <h1 class="text-2xl mb-4 font-bold">Simple to do list</h1>
+                <input v-model="newtask" @keyup.enter="addTask" type="text" placeholder="add a new task" class="w-full border-b rounded-md p-2">
+                <ul>
+                    <li v-for="(task, index) in tasks" :key="index" class="flex flex-col items-center justify-between p-2 border-b">
+                        <span :class="{'line-through text-gray-400': task.completed}">{{task.text}}</span>
+                        <div>
+                            <button @click="toggleCompleted(index)" class="bg-green-600 text-white px-4 py-2 rounded mr-1">✓</button>
+                            <button @click="deleteTask(index)" class="bg-red-600 text-white px-4 py-2 rounded ml-1">✕</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        const app = Vue.createApp ({
+            data () {
+                return {
+                    tasks : [],
+                    newtask : ""
+                }
+            },
+            methods: {
+                addTask() {
+                    this.tasks.push({text:this.newtask, completed: false})
+                    this.newtask = ""
+                    console.log(this.tasks)
+                },
+                toggleCompleted(index) {
+                    this.tasks[index].completed = !this.tasks[index].completed
+                },
+                deleteTask(index) {
+                    this.tasks.splice(index, 1)
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>

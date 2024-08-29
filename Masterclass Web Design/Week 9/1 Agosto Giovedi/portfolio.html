@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        offWhite: '#FAF9F6',
+                        offBlack: '#313639',
+                        dudaCyan: '#c1d6d9',
+                        charcoalGray: '#36454F'
+                    },
+                    fontFamily: {
+                        'Roboto': ['Roboto'],
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body>
+    <div id="container" class="font-Roboto flex flex-col w-full">
+        <div id="navbar"
+            class="fixed flex justify-center items-center shadow-md font-medium bg-charcoalGray text-white w-full z-40">
+            <div id="navbarcontainer" class="flex flex-row w-[80vw] h-[80px] justify-between items-center p-[12px]">
+                <h1 class="text-2xl">Spoolyy's Portfolio</h1>
+                <div class="space-x-4 flex flex-row">
+                    <a class="flex justify-center items-center" href="#" @click.prevent="scrollToSection('#home')">
+                        <p class="hover:-translate-y-1 transition duration-300">Home</p>
+                    </a>
+                    <a class="flex justify-center items-center" href="#" @click.prevent="scrollToSection('#projects')">
+                        <p class="hover:-translate-y-1 transition duration-300">About</p>
+                    </a>
+                    <a class="flex justify-center items-center" href="#" @click.prevent="scrollToSection('#contactME')">
+                        <p class="hover:-translate-y-1 transition duration-300">Contact</p>
+                    </a>
+                    <button v-if="isVisible ^= true"
+                        class="bg-green-600 text-white rounded-lg p-[12px] px-16px shadow-md shadow-black hover:-translate-y-1 transition duration-300">About
+                        Me</button>
+                </div>
+            </div>
+        </div>
+        <div id="aboutMe" class="flex fixed h-full z-50 w-[20%] bg-white" v-bind="isVisible">
+            <div>
+                <h1>Name:{{firstName}}</h1>
+                <h1>Name:{{lastName}}</h1>
+                <h1>Name:{{dateOfBirth}}</h1>
+            </div>
+        </div>
+        <div id="home" class="flex flex-col justify-center items-center bg-offBlack h-screen w-full space-y-6">
+            <img class="h-auto w-[125px]" src="data/pictures/shortlogo.png" alt="Profile picture">
+            <h1 class=" text-white text-[36px] font-normal">Alessio Simeone</h1>
+            <p class="text-white text-[20px] font-light">Web developer and modder</p>
+            <button @click.prevent="scrollToSection('#projects')"
+                class="bg-green-600 text-white rounded-lg p-[12px] px-16px shadow-md shadow-black hover:-translate-y-1 transition duration-300">My
+                projects</button>
+        </div>
+        <div id="projects" class="flex flex-row justify-center items-center h-full w-full bg-offBlack">
+            <div class="w-fit space-x-24 flex flex-row justify-center items-center">
+                <div v-for="(project, index) in Projects" :key="index"
+                    class="flex flex-col h-[500px] w-[300px] bg-white justify-between items-center p-4 py-2 rounded-md mb-[20px]">
+                    <div class="flex text-left">
+                        <h1>{{project.title}}</h1>
+                    </div>
+                    <div class="flex flex-col justify-center items-center space-y-2">
+                        <div class="h-[120px]">
+                            <p>{{project.description}}</p>
+                        </div>
+                        <a :href="project.link"
+                            class="bg-green-600 text-white rounded-lg p-[12px] px-16px shadow-md shadow-black hover:-translate-y-1 transition duration-300">Show me!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="contactMe">
+
+        </div>
+        <div id="projectdisplay" v-for="(item, index) in items" :key="index">
+
+        </div>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    isVisible: true,
+                    firstName: 'Alessio',
+                    lastName: 'Simeone',
+                    dateOfBirth: 'June 25th 1999',
+
+                    Projects: {
+                        Project1: {
+                            title: 'VueJS TextAdventure',
+                            description: 'A short and fun experimented where we used the VueJS framework to reshape an excercise done in the past. It consists of a minigame that you control with two buttons.',
+                            link: 'data/projects/textadventurevuejs.html',
+                            type: 'game'
+                        },
+                        Project2: {
+                            title: 'VueJS ToDo List',
+                            description: 'A Simple ToDo List made entirely in VueJS that allows you to mark tasks as completed, as well as add and remove them.',
+                            link: 'data/projects/ToDoList.html',
+                            type: 'utility'
+                        },
+                        Project3: {
+                            title: 'Project UNITE',
+                            description: 'A online community dedicated to modding the newer Need for Speed titles that i run alongside some friends of mine that i met on the internet.',
+                            link: 'https://discord.gg/unite-1088111994525192332',
+                            type: 'game'
+                        }
+                    },
+                    filteredProjects: {}
+                }
+            },
+            methods: {
+                scrollToSection(selector) {
+                    var element = document.querySelector(selector);
+                    if (element) {
+                        window.scrollTo({
+                            top: element.offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            },
+        })
+        app.mount('#container')
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/tele-marines" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        offWhite: '#FAF9F6',
+                        offBlack: '#313639',
+                        dudaCyan: '#c1d6d9'
+                    },
+                    fontFamily: {
+                        'Roboto': ['Roboto'],
+                        'Tele-Marines': ['tele-Marines']
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body class="font-Roboto">
+    <div id="app" v-cloak >
+        <h1 class="text-[70px] font-bold"> {{ message }} </h1>
+        <input v-model="message" @keyup.enter="greet(message + '!!!!')">
+        <hr />
+        <button @click="toggleBox" class="bg-red-300 border-2 rounded-lg p-2">Show Box</button>
+        <div v-if="isVisible" class="h-48 w-48 bg-red-600"></div>
+        <!-- <div v-else-if="isVisible2" class="h-48 w-48 bg-red-600"></div>
+        <div v-else class="h-48 w-48 bg-green-600"></div> -->
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message : "BALLS!",
+                    isVisible : true,
+                    // isVisible2 : false,
+                }
+            },
+            methods: {
+                greet(greeting) {
+                    console.log(greeting)
+                },
+                toggleBox() {
+                    this.isVisible ^= true
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>

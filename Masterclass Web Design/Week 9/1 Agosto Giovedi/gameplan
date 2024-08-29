@@ -1,0 +1,28 @@
+div contiene tutto
+
+div navbar: titolo, 3 collegamenti, 1 bottone
+
+collegamenti : @click, "scrollToSection('#home')"
+ 
+(per ultima) botton : div che stadavanti, z elevato, v-if: bool, v-on/: bool per modificare la class con tailwind, 
+
+Sezione centrale:
+- immagine tonda
+- h1
+- p
+- button "scrollToSection('#home')"
+
+sezione projects:
+- 3 filtra
+- progetti
+- progetti, projects : nome, descrizione, immagine, link per l'html del Progetto, categorie: web dev e/o mobile 
+
+v-for che mostra i progetti contenuti nella lista : filtered projects
+
+bottone : riempono la lista filetered projects con i progetti che rispettano il criterio selezionato
+
+creare lista di progetti completa, lista vuota che viene riempita con i progetti dopo un filtro, attivato dal bottone
+
+sezione contact me:
+
+input, v-model, controlla che nella email ci sia una @, e all'invio manda un alert

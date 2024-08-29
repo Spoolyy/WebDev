@@ -1,9 +1,50 @@
-Planning prime 60 ore:
-
-Lunedi: Mirko Campari
-Martedi: Davide Cavallini
-Mercoledi: Devide Cavallini
-Giovedi: Michael Bagnoli
-Venerdi: Michael Bagnoli
-
 campari.mirko@gmail.com 3271176812 https://github.com/MaSTERmIKK/Aula_WEB
+
+-polimorfismo: permette di cambiare la forma ma non il comportamento di un metodo o un oggetto.
+
+-la classe e un modello per l'istanziazione degli oggetti, che fornisce all'oggetto attributi e metodi.
+-l'oggetto e l'istanza della classe, composto da attribiti e metodi.
+-il nome della classe definisce il nome dell'oggetto che verra creato e il nome del costruttore.
+
+Caratteristiche di Unione (OOP i in PHP) 
+
+- Classi e Oggetti: PHP supporta le classi e gli oggetti, permettendo agli 
+sviluppatori di definire strutture di classe con proprieta e metodi, e di istanziare 
+oggetti da queste classi. 
+
+- Ereditarieta: PHP permette alle classi di ereditare proprieta e metodi da altre 
+classi, facilitando il riutilizzo del codice e la creazione di gerarchie di classi. 
+
+- Incapsulamento: Le proprieta e i metodi possono essere definiti come pubblici, 
+privati o protetti, permettendo un controllo dettagliato sull'accesso e 
+proteggendo l'integrita dell'oggetto. 
+
+- Polimorfismo: PHP supporta il polimorfismo, principalmente attraverso 
+l'overriding dei metodi (metodi nelle classi derivate che hanno lo stesso nome dei 
+metodi nelle classi base). 
+
+- Interfacce e Classi Astratte: PHP supporta sia interfacce che classi astratte, 
+consentendo agli sviluppatori di definire metodi che devono essere implementati 
+nelle classi concrete.
+
+Caratteristiche di Differenza (PHP vs. OOP Puro) 
+
+- Tipizzazione Dinamica: PHP é un linguaggio a tipizzazione dinamica, il che significa 
+che il tipo di una variabile é determinato in fase di esecuzione. Questo pud portare 
+a meno rigidita e a maggior flessibilita rispetto ai linguaggi a tipizzazione statica, 
+ma puo anche introdurre errori difficili da tracciare. 
+
+- Maneggiamento degli Errori: La gestione degli errori in PHP tradizionalmente si 
+basava su funzioni di gestione degli errori piuttosto che su eccezioni. Tuttavia, le 
+versioni pit’ recenti supportano pienamente le eccezioni, in linea con i principi OOP. 
+
+- Supporto OOP Non Completo: Nonostante le significative miglioramenti, alcune 
+caratteristiche OOP come i metodi e le proprieta statiche finali 0 l'ereditarieta 
+multipla non sono supportate direttamente in PHP (l'ereditarieta multipla pud 
+essere simulata usando le interfacce). 
+
+- Standardizzazione: A differenza di linguaggi OOP piu rigorosi come Java o C#, PHP é 
+meno standardizzato in termini di pratiche OOP, risultando in stili di 
+programmazione piu variabili tra gli sviluppatori.
+
+https://github.com/MaSTERmIKK/AulaWEB

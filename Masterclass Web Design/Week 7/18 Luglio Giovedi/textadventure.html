@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/tele-marines" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        offWhite: '#FAF9F6',
+                        offBlack: '#313639',
+                        dudaCyan: '#c1d6d9'
+                    },
+                    fontFamily: {
+                        'Roboto': ['Roboto'],
+                        'Tele-Marines': ['tele-Marines']
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body>
+    <div class="flex justify-center items-center h-screen bg-[#202837] text-white">
+        <div class="container mx-auto p-4">
+            <div id="game" class="flex flex-col bg-[#131828] rounded-2xl p-8 shadow-lg">
+                <h1 class="text-3xl mb-4">
+                    Text Adventure game
+                </h1>
+                <p id="story" class="mb-4">
+                    You enter a forest and there's two paths on both your left and your right, where do you go?
+                </p>
+                <div id="choices" class="flex flex-row space-x-4">
+                    <button class="choice bg-blue-600 hover:bg-blue-800 py-2 px-4 rounded"
+                    onclick="makeChoice('left')">
+                        Left
+                    </button>
+                    <button class="choice bg-blue-600 hover:bg-blue-800 py-2 px-4 rounded"
+                    onclick="makeChoice('right')">
+                        Right
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const storyElement = document.getElementById('story')
+        const choicesElement = document.getElementById('choices')
+        const adventure = {
+            start: {
+                text: "Ti trovi in una foresta oscura, ci sono due strade: destra o sinistra?",
+                choices: {
+                    left: 'leftPath',
+                    right: 'rightPath'
+                }
+            },
+            leftPath: {
+                text: "Prendi il percorso di sinistra e trovi un orso, Combatti o fuggi?",
+                choices: {
+                    fight: 'fightBeast',
+                    flee: 'fleeBeast'
+                }
+            },
+            rightPath: {
+                text: "Prendi il percorso di destra e trovi un forziere, Lo apri o hai problemi di cervello?",
+                choices: {
+                    open: 'openChest',
+                    leave: 'leaveChest'
+                }
+            },
+            openChest: {
+                text: "Apri la cassa e vinci, hai trovato il tesoro",
+                choices: {
+
+                }
+            }
+
+        } 
+        adventure.current = adventure.start
+        
+        function makeChoice(choice) {
+            const next = adventure[adventure.current.choices[choice]]
+            storyElement.innerText = next.text
+            choicesElement.innerHTML = ""
+            for(const key in next.choices) {
+                const button = document.createElement('button')
+                button.className = "choice bg-blue-600 hover:bg-blue-800 py-2 px-4 rounded"
+                button.innerText = key
+                button.setAttribute('onClick', `makeChoice('${key}')`)
+                choicesElement.appendChild(button)
+            }
+            adventure.current = next
+        }
+
+    </script>
+</body>
+</html>

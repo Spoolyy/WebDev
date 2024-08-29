@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        offWhite: '#FAF9F6',
+                        offBlack: '#313639',
+                        dudaCyan: '#c1d6d9',
+                        charcoalGray: '#36454F'
+                    },
+                    fontFamily: {
+                        'Roboto': ['Roboto'],
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body>
+    <div id="container" class="font-Roboto flex justify-center items-center ">
+        <div id="sectionmain" class="flex flex-col justify-center items-center h-screen w-full bg-offWhite">
+            <div class="flex flex-col justify-between items-center font-[30px] space-y-4 p-2">
+                <h1 class="font-bold text-[36px] ">Hello</h1>
+                <p class="font-normal text-[20px]">please enter your login credentials</p>
+                <input v-model="name" id="name" type="text" placeholder="email"
+                    class="border-2 text-[26px] p-2 rounded-md shadow-sm">
+                <input v-model="password" id="password" type="text" placeholder="password"
+                    class="border-2 text-[26px] p-2 rounded-md shadow-sm">
+                <button @click="choosecontainer" class="bg-offBlack text-white font-[20px] p-4 py-[12px] rounded-md">Log
+                    me in!</button>
+            </div>
+        </div>
+
+        <div v-if="AlessioisVisible" id="section1">
+            <div class="flex flex-col justify-center items-center w-full h-screen z-50">
+                <h1>Hello Alessio</h1>
+                <div id="square" class="w-[200px] h-[200px] bg-red-600"></div>
+            </div>
+        </div>
+
+        <div v-if="SpoolyyisVisible" id="section2">
+            <div class="flex flex-col">
+                <h1>Hello Spoolyy</h1>
+                <div id="square2" class="w-[200px] h-[200px] bg-blue-600"></div>
+            </div>
+        </div>
+        
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    name: '',
+                    password: '',
+                    firstName: 'Alessio',
+                    firstPass: '1234',
+                    secondName: 'Spoolyy',
+                    secondPass: '2345',
+                    AlessioisVisible: false,
+                    SpoolyyisVisible: false
+                }
+            },
+            methods: {
+                choosecontainer() {
+                    if (this.name == this.firstName && this.password == this.firstPass) {
+                        this.AlessioisVisible = true
+                    } else if (this.name == this.secondName && this.password == this.secondPass) {
+                        this.SpoolyyisVisible = true
+                    } else {
+                        this.AlessioisVisible = false
+                        this.SpoolyyisVisible = false
+                        alert('Wrong credentials')
+                    }
+                }
+            },
+        });
+        gsap.to("#square", {
+            rotation: 360,
+            duration: 2,
+            repeat: -1,
+            ease: "linear"
+        });
+
+        gsap.to("#square2", {
+            rotation: -360,
+            duration: 2,
+            repeat: -1,
+            ease: "linear"
+        });
+        app.mount('#container')
+    </script>
+</body>
+
+</html>
