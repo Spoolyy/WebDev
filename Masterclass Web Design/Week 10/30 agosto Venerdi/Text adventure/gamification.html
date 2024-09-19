@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/tele-marines" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        offWhite: '#FAF9F6',
+                        offBlack: '#313639',
+                        dudaCyan: '#c1d6d9'
+                    },
+                    fontFamily: {
+                        'Roboto': ['Roboto'],
+                        'Tele-Marines': ['tele-Marines']
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body>
+    <div class="flex justify-center items-center h-screen bg-[#202837] text-white">
+        <div id="app" class="container mx-auto p-4">
+            <div id="game" class="flex flex-col bg-[#131828] rounded-2xl p-8 shadow-lg">
+                <h1 class="text-3xl mb-4">
+                    eldenBing textgame
+                </h1>
+                <p id="story" class="mb-4">
+                    {{ currentStory.text }}
+                </p>
+                <div class="flex flex-col">
+                    <div>
+                        <label for="playerName">Character Name:  {{eldenBing.characterData.playerName}}</label>
+                        <input v-if="currentStory === eldenBing.characterData" id="playerName" type="text" v-model="eldenBing.characterData.playerName"
+                            class="bg-gray-800 text-white p-2 rounded" placeholder="Enter your character's name" />
+                    </div>
+                    <div class="flex justify-between pt-6">
+                        <div id="choices" class="flex flex-row space-x-4">
+                            <button v-for="(nextStep, choice) in currentStory.choices" :key="choice"
+                                @click="makeChoice(choice)" class="choice bg-blue-600 hover:bg-blue-800 py-2 px-4 rounded">
+                                {{buttonText(choice)}}
+                            </button>
+                        </div>
+                        <button @click="resetStory()" class="bg-blue-600 hover:bg-blue-800 py-2 px-4 rounded">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let app = Vue.createApp({
+            data() {
+                return {
+                    isHidden: false,
+                    playerExp: 0,
+                    playerlevel: 0,
+                    eldenBing: {
+                        characterData: {
+                            text: "Please insert your character name:",
+                            playerName: "",
+                            choices: {
+                                begin: 'start'
+                            }
+                        },
+                        start: {
+                            text: "After getting your ass kicked by a humanoid spider, you find yourself in limgrave, what do you do?",
+                            choices: {
+                                explore: 'explorePath',
+                                continue: 'continuePath'
+                            }
+                        },
+                        explorePath: {
+                            text: "You start exploring and meet a Tree sentinel, what do you do? fight it barehanded or try to find a weapon?",
+                            choices: {
+                                fight: 'fightSentinel',
+                                weapon: 'findWeapon'
+                            }
+                        },
+                        continuePath: {
+                            text: "You find a chest, do you open it?",
+                            choices: {
+                                open: 'openChest',
+                                leave: 'leaveChest'
+                            }
+                        },
+                        fightSentinel: {
+                            text: "You bravely fight the beast and lose you damn idiot, what were you expeting without a weapon. you are DEAD",
+                            choices: {}
+                        },
+                        fightSentinelWithWeapon: {
+                            text: "The sentinel sees the weapon that you are weilding and decides to not mess with you, you win (HOWWWWWWWWW, IT TOOK ME 3 DAYS TO BEAT IT)",
+                            choices: {
+                                continue: "youFoundAChest"
+                            }
+                        },
+                        findWeapon: {
+                            text: "You find a Bloodhound knight, you threaten him and he gives you his curved greatsword. Do you want to go back and fight the tree sentinel or explore?",
+                            choices: {
+                                fight: 'fightSentinelWithWeapon',
+                                explore: 'continuePath'
+                            }
+                        },
+                        youFoundAChest: {
+                            text: "while looking around, you find a chest do you open it or are you stupid?",
+                            choices: {
+                                open: "openChest",
+                                stupid: "youLost"
+                            }
+                        },
+                        openChest: {
+                            text: "You open the chest and find the Elden Ring, it wasn't broken Queen Marika Just lost it cause she's clumsy lol.",
+                            choices: {}
+                        },
+                        leaveChest: {
+                            text: "You get brutally killed by the Tree Sentinel you decided to skip",
+                            choices: {}
+                        },
+                        youLost: {
+                            text: "I do not appreciate that, you lose cause i said so.",
+                            choices: {}
+                        }
+                    },
+                    currentStory: {}
+                }
+            },
+            mounted() {
+                this.currentStory = this.eldenBing.characterData
+            },
+            methods: {
+                makeChoice(choice) {
+                    const next = this.eldenBing[this.currentStory.choices[choice]]
+                    this.currentStory = next
+                    this.isHidden = true
+                },
+                buttonText(choice) {
+                    return choice
+                },
+                resetStory() {
+                    this.eldenBing.characterData.playerName = ""
+                    this.playerExp = 0
+                    this.playerlevel = 0
+                    this.currentStory = this.eldenBing.characterData
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

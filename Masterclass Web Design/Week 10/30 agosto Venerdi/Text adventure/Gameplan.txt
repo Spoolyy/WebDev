@@ -1,0 +1,8 @@
+Basato su text adventure fatta in precedenza
+
+-storia basata principalmente sull'avventura del principiante su elden ring
+-sara' una one way story, se fallisci potrai soltanto premere il tasto di reset, il tuo personaggio verra cancellato e verrai riportato alla creazione del personaggio
+-styling inventato al momento, potrebbe rimanere invariato dal progetto base
+
+la funzione di 'cancellazione del personaggio' sara semplicemente una funzione che impostera l'avventura al punto di creazione del personaggio, e impostera' i valori di
+nome personaggio, exp e livello a quelli di default
